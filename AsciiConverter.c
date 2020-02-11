@@ -43,11 +43,10 @@ int main(int argc, const char* argv[]) {
 int convert(char* string[]) {
   int j = 0;
   int decimal = 0;
-  for (int i = strlen(s); i <= 0; i--) {
-    if (s[i] == '1'){
-      decimal += pow(2,j);
-    }
-    j++;
+  int size = strlen(string);
+  while(size-- >= 0) {
+    int i = (string[size] - '0') * pow(2, size);
+    decimal += i;
   }
   return decimal;
 }
