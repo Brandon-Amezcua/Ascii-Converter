@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <math.h>
-#include <bool.h>
+#include <string.h>
+//#include <bool.h>
 
 #include "fileread.h"
 
-int convert(char* string[], int size);
+int convert(char* string[]);
 
 int main(int argc, const char* argv[]) {
   const char* names[] = {"NUL", "STX", "ETX", "EOT", "ENQ", "ACK", "BEL", "BS",
@@ -19,7 +20,8 @@ int main(int argc, const char* argv[]) {
   int code;
 
   char* asc = "01000001";
-  int deci = convert(asc);
+  int deci = convert(&asc);
+  char rand;
 
   /*
   bool ok = openfile(argc, argv, &fin, &fout, n);
@@ -34,7 +36,7 @@ int main(int argc, const char* argv[]) {
 
 
   printf("Original\tASCII\tDcimal\t");
-  printf("%s\t%c\t%\t%d\t%s",);
+  printf("%s\t%c\t%d", asc, rand, deci);
 
 
 }
@@ -43,9 +45,9 @@ int main(int argc, const char* argv[]) {
 int convert(char* string[]) {
   int j = 0;
   int decimal = 0;
-  int size = strlen(string);
+  int size = strlen(*string);
   while(size-- >= 0) {
-    int i = (string[size] - '0') * pow(2, size);
+    int i = (*string[size] - '0') * pow(2, size);
     decimal += i;
   }
   return decimal;
