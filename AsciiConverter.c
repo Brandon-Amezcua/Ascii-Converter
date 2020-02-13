@@ -4,6 +4,7 @@
 //#include <bool.h>
 
 #include "fileread.h"
+#include "genbin.h"
 
 int convert(char* string[]);
 
@@ -35,7 +36,7 @@ int main(int argc, const char* argv[]) {
   */
 
 
-  printf("Original\tASCII\tDcimal\t");
+  printf("Original\tASCII\tDcimal\tParity");
   printf("%s\t%c\t%d", asc, rand, deci);
 
 
