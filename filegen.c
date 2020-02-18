@@ -16,13 +16,15 @@ int main(int argc, const char* argv[]) {
   char* bi;
 
   for(size_t i = 0; i <= UPTO; i++) {
+    if (i != 0){
+      if ((i % 8) == 0){
+        fputc('\n', fout);
+      } else {
+        fputc('\t', fout);
+      }
+    }
     bi = bin2a(i);
     fputs(bi, fout);
-    if ((i % 8) == 0){
-      fputc('\n', fout);
-    } else {
-      fputc('\t', fout);
-    }
   }
 
   closefiles(fin, fout);

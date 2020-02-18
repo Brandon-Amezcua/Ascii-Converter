@@ -11,19 +11,23 @@ char* bin2a (size_t n) {
   memset(buf, 0, sizeof(buf));
   size_t idx = 0;
 
+
   while (n > 0) {
     buf[idx ++] = '0' + n % 2;
-    n /= 10;
+    n /= 2;
   }
+  buf[idx] = '\0';
 
   size_t len = strlen(buf);
 
-  for (size_t i; i < 8 - len; ++i) {
+  for (size_t i = 0; i < 8 - len; ++i) {
     buf[len + i] = '0';
   }
-strrev(buf);
+
+
   buf[strlen(buf)] = '\0';
 
+  strrev(buf);
   return buf;
 }
 
